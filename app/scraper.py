@@ -1,8 +1,8 @@
 import time
+from app.settings import Settings
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from settings import Settings
 
 
 class OCCScraper:

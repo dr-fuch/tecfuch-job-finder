@@ -1,11 +1,11 @@
 import os
 import shutil
+from app.settings import Settings
 from dotenv import load_dotenv
 from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
-from settings import Settings
 from webdriver_manager.firefox import GeckoDriverManager
 
 

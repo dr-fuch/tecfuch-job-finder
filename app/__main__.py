@@ -1,6 +1,6 @@
-from config import FirefoxConfig
-from scraper import OCCScraper
-from settings import Settings
+from app.config import FirefoxConfig
+from app.scraper import OCCScraper
+from app.settings import Settings
 
 def main():
     config = FirefoxConfig()
