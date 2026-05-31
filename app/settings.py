@@ -22,6 +22,7 @@ class Settings:
     PAGE_LOAD_SLEEP = int(os.getenv("PAGE_LOAD_SLEEP"))
 
     # --- Google AI Configs ---
-    GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+    PROCESS_WITH_GOOGLE_AI= os.getenv("PROCESS_WITH_GOOGLE_AI").lower() == "true"
+    GOOGLE_AI_API_KEY = os.getenv("GOOGLE_AI_API_KEY")
     GOOGLE_AI_MODEL = str(os.getenv("GOOGLE_AI_MODEL"))
     GOOGLE_AI_PROMPT_TEMPLATE = str(os.getenv("GOOGLE_AI_PROMPT_TEMPLATE"))

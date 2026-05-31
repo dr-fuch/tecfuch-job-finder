@@ -4,7 +4,7 @@ from .settings import Settings
 
 class AIHandler:
     def __init__(self):
-        self.client = genai.Client(api_key=Settings.GOOGLE_API_KEY)
+        self.client = genai.Client(api_key=Settings.GOOGLE_AI_API_KEY)
         self.model_id = Settings.GOOGLE_AI_MODEL
 
     def extract_skills(self, job_text):
