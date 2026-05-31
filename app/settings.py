@@ -13,10 +13,13 @@ class Settings:
     TEMP_PROFILE_PATH = str(Path(os.getenv("TEMP_PROFILE_PATH")).expanduser())
     FIREFOX_BINARY = os.getenv("FIREFOX_BINARY")
 
-    # --- Searching Properties ---
+    # --- Searching Configs ---
     JOB_POSITION = os.getenv("JOB_POSITION")
     JOB_LOCATION = os.getenv("JOB_LOCATION")
 
+    # --- Apply Configs ---
+    ENABLE_AUTO_APPLY = os.getenv("ENABLE_AUTO_APPLY").lower() == "true"
+    
     # --- Times Configs ---
     WAIT_TIMEOUT = int(os.getenv("WAIT_TIMEOUT"))
     PAGE_LOAD_SLEEP = int(os.getenv("PAGE_LOAD_SLEEP"))
