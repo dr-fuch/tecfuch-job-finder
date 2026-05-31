@@ -1,5 +1,6 @@
 import time
 from app.settings import Settings
+from app.aihandler import AIHandler
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -9,6 +10,7 @@ class OCCScraper:
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(self.driver, Settings.WAIT_TIMEOUT)
+        self.ai = AIHandler()
 
     def search_jobs(self, position, location):
         self.driver.get(Settings.SITE)
@@ -39,14 +41,26 @@ class OCCScraper:
             self._process_card(card, index)
 
     def _process_card(self, card, index):
+        start_time = time.time()
+
         try:
             self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", card)
             time.sleep(Settings.PAGE_LOAD_SLEEP)
             card.click()
+            
             print(f"\n🔍 Leyendo vacante {index + 1}...")
             time.sleep(Settings.PAGE_LOAD_SLEEP) 
-            
             detail = self.driver.find_element(By.ID, "job-detail-container")
-            print(detail.text)
+            
+            print("🤖 Analizando habilidades con Gemini...")
+            response = self.ai.extract_skills(detail.text)
+            print(f"\nSkills: {response}")
+
+            end_time = time.time()
+            duration = end_time - start_time
+
+            print(f"\n⏱️ Tiempo total de procesamiento: {duration:.2f} segundos")
+            
+
         except Exception as e:
             print(f"⚠️ Error en tarjeta {index + 1}: {e}")

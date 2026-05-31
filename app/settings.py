@@ -20,3 +20,8 @@ class Settings:
     # --- Times Configs ---
     WAIT_TIMEOUT = int(os.getenv("WAIT_TIMEOUT"))
     PAGE_LOAD_SLEEP = int(os.getenv("PAGE_LOAD_SLEEP"))
+
+    # --- Google AI Configs ---
+    GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+    GOOGLE_AI_MODEL = str(os.getenv("GOOGLE_AI_MODEL"))
+    GOOGLE_AI_PROMPT_TEMPLATE = str(os.getenv("GOOGLE_AI_PROMPT_TEMPLATE"))
